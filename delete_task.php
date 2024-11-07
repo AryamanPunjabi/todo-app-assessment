@@ -4,7 +4,6 @@ include 'db.php';
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    // Use prepared statements for deletion
     $stmt = $conn->prepare("DELETE FROM tasks WHERE id = ?");
     $stmt->bind_param("i", $id);
 

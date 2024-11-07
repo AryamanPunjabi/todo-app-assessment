@@ -4,7 +4,6 @@ include 'db.php';
 if (isset($_POST['task'])) {
     $task = trim($_POST['task']);
 
-    // Validate task description length and content
     if (strlen($task) > 0 && strlen($task) <= 255 && preg_match("/^[a-zA-Z0-9\s]+$/", $task)) {
         
         $stmt = $conn->prepare("INSERT INTO tasks (task, completed) VALUES (?, 0)");
